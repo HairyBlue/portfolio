@@ -16,5 +16,8 @@
     "nuxt": "npm:nuxt-nightly@4.5.3-29774178.763f6576",
     "vue": "^3.5.41",
     "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.100.0"
   }
 }
