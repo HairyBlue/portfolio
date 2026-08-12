@@ -1,0 +1,242 @@
+/* Base CSS Reset & Coffee Design System Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Font Families */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Color Palette - Warm Mocha Coffee & Off-White Paper */
+  --bg-page: #f4efe6;              /* Warm Latte Cream */
+  --bg-surface: #ffffff;           /* Crisp White Card */
+  --bg-surface-subtle: #eae2d5;    /* Soft Latte Wash */
+  
+  --text-main: #2c2420;            /* Dark Espresso */
+  --text-muted: #66574d;           /* Warm Mocha Brown */
+  --text-dim: #99887b;             /* Soft Taupe */
+
+  --coffee-dark: #2c2420;          /* Deep Espresso */
+  --coffee-espresso: #1e1714;      /* Pure Espresso */
+  --coffee-roast: #6d5446;         /* Medium Roast */
+  --coffee-latte: #eae2d5;         /* Soft Latte */
+  --coffee-cream: #f4efe6;         /* Cream */
+
+  --border-dim: #e2d7c7;           /* Warm Border */
+  --border-strong: #cfc2b1;        /* Darker Border */
+}
+
+/* Global Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Corner Layout Grid Lines (Top-Right & Bottom-Left ONLY) */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    linear-gradient(to right, rgba(207, 194, 177, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(207, 194, 177, 0.35) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Top-Right Corner Grid */
+body::before {
+  top: 0;
+  right: 0;
+  mask-image: radial-gradient(circle at 100% 0%, black 35%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 100% 0%, black 35%, transparent 85%);
+}
+
+/* Bottom-Left Corner Grid */
+body::after {
+  bottom: 0;
+  left: 0;
+  mask-image: radial-gradient(circle at 0% 100%, black 35%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 0% 100%, black 35%, transparent 85%);
+}
+
+/* Container */
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Main 2-Column Grid Layout */
+.portfolio-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.main-content {
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .portfolio-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #8c7a6b;
+  text-transform: uppercase;
+}
+
+/* Card Styling */
+.portfolio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dim);
+  border-radius: 1.25rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(44, 36, 32, 0.03);
+}
+
+.portfolio-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 10px 30px rgba(44, 36, 32, 0.08);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--coffee-dark);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.925rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid var(--coffee-dark);
+  box-shadow: 0 4px 14px rgba(44, 36, 32, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--coffee-roast);
+  border-color: var(--coffee-roast);
+  box-shadow: 0 6px 20px rgba(44, 36, 32, 0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--bg-surface);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.925rem;
+  text-decoration: none;
+  border: 1px solid var(--border-dim);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-surface-subtle);
+  border-color: var(--border-strong);
+}
+
+/* Modal Overlay */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 36, 32, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-content {
+  max-width: 650px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dim);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
