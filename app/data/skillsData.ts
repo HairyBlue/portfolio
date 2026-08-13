@@ -29,7 +29,7 @@ export const skillCategories: SkillCategory[] = [
     category: "Frontend & Interactive UI",
     skills: [
       { name: "Vue.js", featured: true, icon: "logos:vue", badgeText: "VUE" },
-      { name: "Nuxt 3 / 5", featured: true, icon: "logos:nuxt-icon", badgeText: "NUXT" },
+      { name: "Nuxt", featured: true, icon: "logos:nuxt-icon", badgeText: "NUXT" },
       { name: "React.js", featured: false, icon: "logos:react", badgeText: "REACT" },
       { name: "Tailwind CSS", featured: false, icon: "logos:tailwindcss-icon", badgeText: "CSS" },
       { name: "jQuery", featured: false, icon: "logos:jquery-icon", badgeText: "JQ" }
