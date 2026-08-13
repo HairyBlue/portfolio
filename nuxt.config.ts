@@ -36,7 +36,8 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'Crafting digital experiences with Vue, Nuxt, Laravel, and TypeScript.' }
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'shortcut icon', href: '/favicon.ico' },
         { rel: 'canonical', href: 'https://hairyblue.pages.dev' }
       ]
     }
