@@ -13,7 +13,7 @@
     <!-- Stats Grid -->
     <div class="hero-stats-grid">
       <div class="stat-card">
-        <span class="stat-number">+1.9</span>
+        <span class="stat-number">+2</span>
         <span class="stat-label font-mono">YEARS OF EXPERIENCE</span>
       </div>
       <div class="stat-card">
