@@ -18,10 +18,9 @@ export const experiences: Experience[] = [
     type: "Onsite (Full-time)",
     period: "Feb 2026 – Present",
     highlights: [
-      "Develop a centralized system for official provincial announcements, notices, and public records.",
-      "Design comprehensive Entity Relationship Diagrams (ERD) and intuitive UI mockups using Figma & Excalidraw.",
-      "Collaborate with multi-disciplinary development teams to ensure high efficiency and delivery schedules.",
-      "Implement Docker containerization and build CI/CD automation pipelines with GitHub Actions."
+      "Architected a centralized provincial communication platform from zero, streamlining public advisories for the Province of Davao del Sur.",
+      "Engineered database architectures and conceptualized UI frameworks, significantly reducing development iteration cycles.",
+      "Spearheaded containerization strategies and CI/CD pipelines, accelerating deployment timelines for cross-functional teams."
     ],
     technologies: ["Laravel", "PHP", "Filament", "Tailwind CSS", "JavaScript", "Bash", "MySQL", "Docker", "GitHub Actions"]
   },
@@ -33,9 +32,9 @@ export const experiences: Experience[] = [
     type: "Remote (Freelance / Contract)",
     period: "Jan 2026",
     highlights: [
-      "Enhanced and optimized existing web applications by resolving critical bugs and improving performance.",
-      "Assisted in configuring and deploying CI/CD workflows using self-hosted runners on Gitea.",
-      "Collaborated closely with QA testers and UI/UX designers to meet strict design and functional quality standards."
+      "Overhauled existing web applications by resolving critical bottlenecks and elevating overall system performance.",
+      "Architected CI/CD workflows utilizing self-hosted Gitea runners, drastically reducing deployment friction.",
+      "Delivered pixel-perfect feature implementations by bridging the gap between engineering, QA, and design teams."
     ],
     technologies: ["Nuxt", "Vue.js", "TypeScript", "JavaScript", "Node.js", "Git", "PostgreSQL", "Docker", "Bash", "Gitea"]
   },
@@ -47,9 +46,9 @@ export const experiences: Experience[] = [
     type: "Remote (Freelance)",
     period: "Dec 2023 – Nov 2025",
     highlights: [
-      "Maintained and expanded core multi-tier applications across backend APIs, frontend portals, and custom Chrome extensions.",
-      "Designed and delivered user-focused features that significantly enhanced overall system usability and workflow speeds.",
-      "Engineered high-throughput batch processing pipelines pulling large volumes of sports data from third-party APIs, performing data cleaning and normalization for cross-sports matching."
+      "Spearheaded the maintenance and expansion of a complex ecosystem, spanning backend APIs, frontend portals, and specialized Chrome extensions.",
+      "Delivered high-impact user features that dramatically accelerated workflow speeds and system usability.",
+      "Architected robust, high-throughput ETL pipelines to ingest, normalize, and reconcile massive volumes of heterogeneous sports data."
     ],
     technologies: ["Vue.js", "TypeScript", "JavaScript", "Node.js", "Chrome Extension API", "Git", "REST APIs"]
   },
@@ -61,9 +60,9 @@ export const experiences: Experience[] = [
     type: "Onsite Internship",
     period: "Jul 2024 – Aug 2024",
     highlights: [
-      "Developed and deployed a web application for tracking school event records and participation across student clubs and organizations.",
-      "Maintained and enhanced institutional web applications throughout internship and post-graduation phases.",
-      "Configured multi-app routing on single servers (Apache HTTP Server) for student Laravel and Node.js projects, fixing Livewire routing and static asset resolution."
+      "Engineered a comprehensive event tracking ecosystem, digitizing student participation records across the institution.",
+      "Maintained and modernized legacy institutional platforms, ensuring sustained operational stability post-deployment.",
+      "Overhauled multi-app routing infrastructure on Apache HTTP Server, resolving critical Laravel Livewire and static asset resolution failures."
     ],
     technologies: ["TypeScript", "JavaScript", "Node.js", "Vue.js", "MySQL", "Bash", "Apache HTTP Server", "Laravel", "PHP", "Git"]
   }

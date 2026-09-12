@@ -2,25 +2,24 @@
   <header class="header-container">
     <div class="header-inner portfolio-container">
       <!-- Left: Logo & Brand -->
-      <NuxtLink to="/" class="brand-logo font-mono">
+      <NuxtLink to="/" class="brand-logo font-heading">
         <span class="logo-mark">HB</span>
         <span class="logo-name">{{ personalDetails.handle }}</span>
       </NuxtLink>
 
-      <!-- Floating Pill Nav Bar -->
-      <nav class="floating-nav-pill font-mono">
+      <!-- Classic Flat Nav Bar -->
+      <nav class="classic-nav font-mono">
         <NuxtLink 
           v-for="item in navItems" 
           :key="item.id" 
           :to="item.href"
-          :class="['nav-pill-item', { active: route.path === item.href }]"
+          :class="['nav-item', { active: route.path === item.href }]"
         >
-          <component :is="item.icon" class="w-4 h-4 nav-icon" />
           <span class="nav-label">{{ item.label }}</span>
         </NuxtLink>
       </nav>
 
-      <!-- Right: Social Links (GitHub & LinkedIn) -->
+      <!-- Right: Social Links -->
       <div class="header-socials">
         <a 
           :href="personalDetails.socials.github" 
@@ -47,11 +46,6 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import IconHome from '~/components/icons/IconHome.vue'
-import IconFolder from '~/components/icons/IconFolder.vue'
-import IconBriefcase from '~/components/icons/IconBriefcase.vue'
-import IconWrench from '~/components/icons/IconWrench.vue'
-import IconBookOpen from '~/components/icons/IconBookOpen.vue'
 import IconGithub from '~/components/icons/IconGithub.vue'
 import IconLinkedin from '~/components/icons/IconLinkedin.vue'
 import { personalDetails } from '~/data/portfolioData'
@@ -59,11 +53,11 @@ import { personalDetails } from '~/data/portfolioData'
 const route = useRoute()
 
 const navItems = [
-  { id: 'home', label: 'Home', href: '/', icon: IconHome },
-  { id: 'projects', label: 'Projects', href: '/projects', icon: IconFolder },
-  { id: 'experience', label: 'Work', href: '/experience', icon: IconBriefcase },
-  { id: 'skills', label: 'Tech', href: '/skills', icon: IconWrench },
-  { id: 'story', label: 'Story', href: '/story', icon: IconBookOpen }
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'projects', label: 'Projects', href: '/projects' },
+  { id: 'experience', label: 'Work', href: '/experience' },
+  { id: 'skills', label: 'Tech', href: '/skills' },
+  { id: 'story', label: 'Story', href: '/story' }
 ]
 </script>
 
@@ -72,9 +66,9 @@ const navItems = [
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 1.25rem 0;
-  background: rgba(244, 239, 230, 0.85);
-  backdrop-filter: blur(12px);
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border-dim);
+  border-top: 1px solid var(--border-dim);
 }
 
 .header-inner {
@@ -82,6 +76,8 @@ const navItems = [
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .brand-logo {
@@ -90,119 +86,96 @@ const navItems = [
   gap: 0.6rem;
   text-decoration: none;
   color: var(--text-main);
-  font-weight: 800;
 }
 
 .logo-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 0.5rem;
-  background: var(--coffee-dark);
-  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   font-weight: 900;
 }
 
 .logo-name {
   font-size: 0.95rem;
-  color: var(--text-main);
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
 }
 
-/* Floating Nav Pill */
-.floating-nav-pill {
+.classic-nav {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  background: var(--coffee-dark);
-  padding: 0.35rem 0.5rem;
-  border-radius: 9999px;
-  box-shadow: 0 10px 25px rgba(44, 36, 32, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 1.5rem;
 }
 
-.nav-pill-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 9999px;
-  color: rgba(255, 255, 255, 0.7);
+.nav-item {
+  color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+  position: relative;
 }
 
-.nav-pill-item:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
+.nav-item:hover {
+  color: var(--text-main);
 }
 
-.nav-pill-item.active {
-  background: var(--coffee-latte);
-  color: var(--coffee-dark);
+.nav-item.active {
+  color: var(--accent-ink);
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accent-ink);
 }
 
 .header-socials {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .social-icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-dim);
-  color: var(--text-main);
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .social-icon-btn:hover {
-  border-color: var(--text-main);
-  background: var(--text-main);
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 @media (max-width: 768px) {
-  .nav-label {
+  .logo-name {
     display: none;
+  }
+  
+  .classic-nav {
+    gap: 1rem;
   }
 }
 
 @media (max-width: 640px) {
-  .header-container {
-    padding: 0.75rem 0;
-  }
-
-  .logo-name {
-    display: none;
-  }
-
   .header-socials {
     display: none;
   }
-
-  .header-inner {
-    justify-content: space-between;
-  }
-
-  .floating-nav-pill {
-    padding: 0.25rem 0.35rem;
-    gap: 0.15rem;
-  }
-
-  .nav-pill-item {
-    padding: 0.4rem 0.6rem;
+  
+  .nav-item {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
   }
 }
 </style>

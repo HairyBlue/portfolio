@@ -1,94 +1,80 @@
 <template>
   <section id="projects" class="projects-section">
     <!-- Header -->
-    <div class="section-header-row">
-      <div class="section-header">
-        <h2 class="section-title">{{ isHome ? 'RECENT' : 'ALL' }}</h2>
-        <h2 class="section-subtitle">PROJECTS</h2>
-      </div>
-
-      <NuxtLink v-if="isHome" to="/projects" class="header-arrow-link" title="View All Projects">
-        <IconArrowUpRight class="w-6 h-6" />
-      </NuxtLink>
+    <div class="section-header">
+      <h2 class="section-title font-heading">{{ isHome ? 'Featured Case Studies' : 'All Projects' }}</h2>
     </div>
+    <hr class="editorial-rule">
 
     <!-- Vertical Projects List -->
     <div class="projects-list">
-      <div 
+      <article 
         v-for="project in displayedProjects" 
         :key="project.id"
-        class="portfolio-card project-item"
+        class="project-article"
         @click="openModal(project)"
       >
-        <div class="project-left">
-          <!-- Thumbnail Image (if useImage is true & image provided) -->
-          <div v-if="project.useImage && project.image" class="project-thumb-box img-box">
-            <img :src="project.image" :alt="project.title" class="project-thumb-img" />
-          </div>
-
-          <!-- Fallback Badge Text (if useImage is false) -->
-          <div v-else class="project-thumb-box font-mono">
-            {{ project.badgeText }}
-          </div>
-
-          <div class="project-info">
-            <h3 class="project-name">{{ project.title }}</h3>
-            <p class="project-category font-mono">{{ project.subtitle }} &bull; {{ project.year }}</p>
-            <p class="project-short-desc">{{ project.description }}</p>
-          </div>
+        <div class="article-meta dateline">
+          <span class="category">{{ project.category }}</span>
+          <span class="separator">|</span>
+          <span class="year">{{ project.year }}</span>
         </div>
-
-        <div class="project-arrow-box">
-          <IconArrowUpRight class="w-5 h-5" />
+        
+        <h3 class="project-title font-heading">{{ project.title }}</h3>
+        
+        <p class="project-snippet font-body">
+          {{ project.description }}
+        </p>
+        
+        <div class="project-tech">
+          <em>{{ project.technologies.join(' · ') }}</em>
         </div>
-      </div>
+      </article>
     </div>
 
     <!-- Bottom View All Button on Home Page -->
-    <div v-if="isHome" class="section-view-more mt-6">
-      <NuxtLink to="/projects" class="view-more-btn font-mono">
-        <span>View All Projects</span>
-        <IconArrowUpRight class="w-4 h-4" />
+    <div v-if="isHome" class="section-view-more">
+      <NuxtLink to="/projects" class="view-more-link font-heading">
+        Read All Case Studies &rarr;
       </NuxtLink>
     </div>
 
     <!-- Project Detail Modal Overlay -->
     <Teleport to="body">
       <div v-if="selectedProject" class="modal-backdrop" @click.self="closeModal">
-        <div class="modal-content portfolio-card">
-          <!-- Circular Close Icon Button -->
-          <button class="modal-close-btn" aria-label="Close modal" @click="closeModal">
-            <IconX class="w-4 h-4" />
+        <div class="modal-content">
+          <!-- Close Button (text) -->
+          <button class="modal-close-text font-mono" aria-label="Close modal" @click="closeModal">
+            [ CLOSE ]
           </button>
 
           <div class="modal-header">
-            <div class="modal-badge-row mb-3">
-              <span class="category-pill font-mono">{{ selectedProject.category }}</span>
-              <span class="year-pill font-mono">{{ selectedProject.year }}</span>
+            <div class="modal-meta dateline mb-2">
+              <span>{{ selectedProject.category }}</span>
+              <span class="separator">|</span>
+              <span>{{ selectedProject.year }}</span>
             </div>
-            <h2 class="modal-title">{{ selectedProject.title }}</h2>
-            <p class="modal-subtitle font-mono">{{ selectedProject.subtitle }}</p>
+            <h2 class="modal-title font-heading">{{ selectedProject.title }}</h2>
+            <p class="modal-subtitle font-body"><em>{{ selectedProject.subtitle }}</em></p>
           </div>
+          
+          <hr class="editorial-rule-thin">
 
           <div class="modal-body">
-            <p class="long-desc">{{ selectedProject.longDescription || selectedProject.description }}</p>
+            <p class="long-desc font-body">{{ selectedProject.longDescription || selectedProject.description }}</p>
 
-            <div class="modal-section-title font-mono mb-2">TECHNOLOGIES USED</div>
-            <div class="tech-tags mb-6">
-              <span 
-                v-for="tech in selectedProject.technologies" 
-                :key="tech" 
-                class="tag-pill highlight"
-              >
-                {{ tech }}
-              </span>
+            <div class="tech-stack mb-4">
+              <span class="font-mono text-small dateline">TECHNOLOGIES:</span><br/>
+              <em>{{ selectedProject.technologies.join(', ') }}</em>
             </div>
 
-            <div v-if="selectedProject.stats" class="stats-box mb-6 font-mono">
-              <span class="stats-label">KEY HIGHLIGHT:</span>
-              <span class="stats-value">{{ selectedProject.stats }}</span>
+            <div v-if="selectedProject.stats" class="stats-box mb-4">
+              <span class="font-mono dateline">KEY HIGHLIGHT:</span><br/>
+              <span class="font-body">{{ selectedProject.stats }}</span>
             </div>
           </div>
+          
+          <hr class="editorial-rule-thin">
 
           <div class="modal-actions">
             <a 
@@ -98,8 +84,7 @@
               rel="noopener noreferrer" 
               class="btn-primary"
             >
-              <IconExternalLink class="w-4 h-4" />
-              <span>Visit Live Portal</span>
+              Visit Live Portal
             </a>
             <a 
               v-if="selectedProject.githubUrl" 
@@ -108,10 +93,8 @@
               rel="noopener noreferrer" 
               class="btn-secondary"
             >
-              <IconGithub class="w-4 h-4" />
-              <span>GitHub Repository</span>
+              GitHub Repository
             </a>
-            <button class="btn-secondary" @click="closeModal">Close</button>
           </div>
         </div>
       </div>
@@ -121,10 +104,6 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import IconArrowUpRight from '~/components/icons/IconArrowUpRight.vue'
-import IconGithub from '~/components/icons/IconGithub.vue'
-import IconExternalLink from '~/components/icons/IconExternalLink.vue'
-import IconX from '~/components/icons/IconX.vue'
 import { projects, type Project } from '~/data/portfolioData'
 
 const props = withDefaults(defineProps<{
@@ -170,284 +149,152 @@ onUnmounted(() => {
   margin-bottom: 4rem;
 }
 
-.section-header-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
+.section-header {
+  margin-bottom: 0.5rem;
 }
 
-.header-arrow-link {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid var(--border-dim);
-  background: var(--bg-surface);
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
   color: var(--text-main);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.header-arrow-link:hover {
-  background: var(--coffee-dark);
-  color: #ffffff;
-  border-color: var(--coffee-dark);
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .projects-list {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2rem;
 }
 
-.project-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.project-article {
   cursor: pointer;
-  padding: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-dim);
+  transition: background-color 0.2s ease;
 }
 
-.project-left {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
+.project-article:hover {
+  background-color: var(--bg-surface-subtle);
 }
 
-.project-thumb-box {
-  width: 64px;
-  height: 64px;
-  border-radius: 0.85rem;
-  background: var(--coffee-latte);
-  border: 1px solid var(--border-dim);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--coffee-dark);
+.project-article:hover .project-title {
+  text-decoration: underline;
 }
 
-.project-name {
-  font-size: 1.35rem;
+.article-meta {
+  margin-bottom: 0.5rem;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: var(--border-dim);
+}
+
+.project-title {
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.project-category {
-  font-size: 0.825rem;
-  color: var(--coffee-roast);
-  margin-bottom: 0.35rem;
-  font-weight: 600;
-}
-
-.project-short-desc {
-  font-size: 0.9rem;
+.project-snippet {
+  font-size: 1.1rem;
   color: var(--text-muted);
-  line-height: 1.4;
-  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 800px;
 }
 
-.project-arrow-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border-dim);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  transition: all 0.2s ease;
+.project-tech {
+  color: var(--text-dim);
+  font-size: 0.95rem;
 }
 
-@media (max-width: 640px) {
-  .project-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem;
-  }
-
-  .project-left {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 0.85rem;
-  }
-
-  .project-arrow-box {
-    align-self: flex-end;
-  }
-}
-
-.project-item:hover .project-arrow-box {
-  background: var(--coffee-dark);
-  color: #ffffff;
-  border-color: var(--coffee-dark);
-}
-
-/* View More Button */
 .section-view-more {
+  margin-top: 2rem;
   display: flex;
   justify-content: flex-end;
 }
 
-.view-more-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.25rem;
-  border-radius: 9999px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-dim);
-  color: var(--text-main);
-  font-size: 0.85rem;
-  font-weight: 600;
+.view-more-link {
+  font-size: 1.25rem;
+  color: var(--accent-ink);
   text-decoration: none;
-  transition: all 0.2s ease;
+  font-weight: 700;
+  transition: color 0.2s ease;
 }
 
-.view-more-btn:hover {
-  background: var(--coffee-dark);
-  color: #ffffff;
-  border-color: var(--coffee-dark);
+.view-more-link:hover {
+  color: var(--text-main);
+  text-decoration: underline;
 }
 
 /* Modal styling */
-.modal-close-btn {
+.modal-close-text {
   position: absolute;
   top: 1.25rem;
-  right: 1.25rem;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg-surface-subtle);
-  border: 1px solid var(--border-dim);
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.modal-close-btn:hover {
-  background: var(--coffee-dark);
-  color: #ffffff;
-  border-color: var(--coffee-dark);
-}
-
-.modal-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.category-pill {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  background: var(--coffee-dark);
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-.year-pill {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
-  background: var(--bg-surface-subtle);
-  border: 1px solid var(--border-dim);
+  right: 1.5rem;
+  background: none;
+  border: none;
   color: var(--text-dim);
+  font-size: 0.75rem;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.modal-close-text:hover {
+  color: var(--text-main);
 }
 
 .modal-title {
-  font-size: 1.85rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: var(--text-main);
-  margin-bottom: 0.25rem;
-  padding-right: 2.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  padding-right: 2rem;
 }
 
 .modal-subtitle {
-  font-size: 0.9rem;
-  color: var(--coffee-roast);
-  margin-bottom: 1.25rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.editorial-rule-thin {
+  border: none;
+  border-top: 1px solid var(--border-strong);
+  margin: 1.5rem 0;
 }
 
 .long-desc {
-  font-size: 1.025rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.modal-section-title {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  letter-spacing: 0.04em;
-}
-
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.tag-pill {
-  font-size: 0.8rem;
-  padding: 0.3rem 0.7rem;
-  border-radius: 0.4rem;
-  background: var(--bg-surface-subtle);
-  border: 1px solid var(--border-dim);
+  font-size: 1.1rem;
   color: var(--text-main);
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
-.tag-pill.highlight {
-  background: var(--coffee-latte);
-  border-color: var(--border-strong);
-  color: var(--coffee-dark);
-  font-weight: 600;
+.text-small {
+  font-size: 0.75rem;
+}
+
+.tech-stack em {
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
 .stats-box {
-  padding: 1rem 1.25rem;
-  border-radius: 0.75rem;
-  background: var(--bg-surface-subtle);
-  border: 1px dashed var(--border-strong);
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.875rem;
-}
-
-.stats-label {
-  color: var(--text-dim);
-  font-size: 0.75rem;
-}
-
-.stats-value {
-  color: var(--coffee-dark);
-  font-weight: 700;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-ink);
+  font-size: 1.05rem;
 }
 
 .modal-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-dim);
 }
 
 .mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 0.75rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-.mt-6 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1rem; }
 </style>

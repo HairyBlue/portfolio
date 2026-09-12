@@ -2,37 +2,30 @@
   <section id="recommendation" class="testimonial-section">
     <!-- Header -->
     <div class="section-header">
-      <h2 class="section-title">PEER</h2>
-      <h2 class="section-subtitle">RECOMMENDATIONS</h2>
+      <h2 class="section-title font-heading">Letter to the Editor</h2>
     </div>
+    <hr class="editorial-rule">
 
-    <div class="portfolio-card testimonial-card">
-      <div class="card-quote-header">
-        <IconQuote class="w-8 h-8 text-coffee" />
-        <span class="verified-pill font-mono">
-          <IconCheckCircle class="w-3.5 h-3.5" />
-          <span>LinkedIn Recommendation</span>
-        </span>
-      </div>
-
-      <blockquote class="testimonial-quote">
+    <div class="oped-card">
+      <span class="hanging-quote font-heading">&ldquo;</span>
+      
+      <blockquote class="oped-quote font-body">
         {{ testimonials[0].quote }}
       </blockquote>
 
-      <div class="author-row">
-        <div>
-          <h4 class="author-name">{{ testimonials[0].name }}</h4>
-          <p class="author-title">{{ testimonials[0].title }}</p>
-          <p class="relationship-tag font-mono">{{ testimonials[0].relationship }}</p>
-        </div>
+      <div class="oped-author">
+        <h4 class="author-name font-heading">{{ testimonials[0].name }}</h4>
+        <p class="author-title font-mono dateline">{{ testimonials[0].title }} &bull; {{ testimonials[0].relationship }}</p>
+        
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="verified-link font-mono dateline">
+          Verified on LinkedIn
+        </a>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import IconQuote from '~/components/icons/IconQuote.vue'
-import IconCheckCircle from '~/components/icons/IconCheckCircle.vue'
 import { testimonials } from '~/data/portfolioData'
 </script>
 
@@ -41,81 +34,71 @@ import { testimonials } from '~/data/portfolioData'
   margin-bottom: 4rem;
 }
 
-.testimonial-card {
-  padding: 2.25rem;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-dim);
+.section-header {
+  margin-bottom: 0.5rem;
 }
 
-.card-quote-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.text-coffee {
-  color: var(--coffee-roast);
-}
-
-.verified-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.75rem;
-  color: var(--coffee-dark);
-  background: var(--coffee-latte);
-  border: 1px solid var(--border-dim);
-  padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
-  font-weight: 600;
-}
-
-.testimonial-quote {
-  font-size: 1.05rem;
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
   color: var(--text-main);
-  line-height: 1.75;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.oped-card {
+  position: relative;
+  padding-left: 2.5rem;
+  border-left: 4px solid var(--accent-ink);
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
-  white-space: pre-line;
+}
+
+.hanging-quote {
+  position: absolute;
+  top: -2rem;
+  left: -1rem;
+  font-size: 6rem;
+  color: var(--border-dim);
+  line-height: 1;
+  z-index: -1;
+}
+
+.oped-quote {
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--text-main);
   font-style: italic;
+  white-space: pre-line;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.author-row {
+.oped-author {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border-dim);
-}
-
-.avatar-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--coffee-dark);
-  color: #ffffff;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .author-name {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
 .author-title {
-  font-size: 0.875rem;
   color: var(--text-muted);
 }
 
-.relationship-tag {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  margin-top: 0.15rem;
+.verified-link {
+  margin-top: 0.5rem;
+  color: var(--accent-ink);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.verified-link:hover {
+  text-decoration: underline;
 }
 </style>

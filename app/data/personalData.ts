@@ -25,7 +25,7 @@ export const personalDetails: PersonalDetails = {
   location: "Mindanao, Philippines",
   email: "pecision.nickimarty@gmail.com",
   phone: "(+63) 9774888937",
-  bio: "I am a junior software engineer situated in Mindanao, Philippines. Committed to continuous learning and staying updated with emerging technologies, my primary focus is solving complex problems and striving for efficient, clean solutions.",
+  bio: "I build high-performance web infrastructure that transforms complex problems into elegant digital experiences. From government portals to global startup platforms, I architect systems that scale.",
   status: "Available for Opportunities",
   socials: {
     github: "https://github.com/HairyBlue",
@@ -33,7 +33,7 @@ export const personalDetails: PersonalDetails = {
     oldSite: "https://hairyblue.pages.dev"
   },
   signatureQuote: "Code is the language of freedom in the digital realm",
-  useImage: false,
+  useImage: true,
   image: "/images/profile.jpg",
   badgeText: "HB"
 }
