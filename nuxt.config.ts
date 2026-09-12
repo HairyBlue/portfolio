@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         { property: 'og:title', content: 'Nicki Marty Pecision | Software Engineer' },
         { property: 'og:description', content: 'Crafting digital experiences with Vue, Nuxt, Laravel, and TypeScript.' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://hairyblue.pages.dev' },
+        { property: 'og:url', content: 'https://hairyblue.pages.dev/' },
         
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -38,7 +38,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'shortcut icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: 'https://hairyblue.pages.dev' }
+        { rel: 'canonical', href: 'https://hairyblue.pages.dev/' }
       ]
     }
   },

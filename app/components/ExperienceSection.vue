@@ -2,9 +2,9 @@
   <section id="experience" class="experience-section">
     <!-- Header -->
     <div class="section-header">
-      <h2 class="section-title font-heading">Work Experience</h2>
+      <h2 class="section-title font-headline">THE CAREER CHRONICLE & DISPATCH ARCHIVES</h2>
     </div>
-    <hr class="editorial-rule">
+    <hr class="editorial-rule-double">
 
     <div class="experience-list">
       <article 
@@ -12,37 +12,34 @@
         :key="exp.id" 
         class="exp-entry"
       >
-        <header class="exp-header">
+        <div class="exp-left-col">
           <div class="exp-meta dateline">
-            <span>{{ exp.period }}</span>
-            <span class="separator">|</span>
-            <span>{{ exp.location }}</span>
-            <span class="separator">|</span>
+            <span>{{ exp.period }}</span><br/>
+            <span>{{ exp.location }}</span><br/>
             <span>{{ exp.type }}</span>
           </div>
-          <h3 class="company-name font-heading">{{ exp.company }}</h3>
+          <h3 class="company-name font-headline">{{ exp.company }}</h3>
           <p class="role-name font-body"><em>{{ exp.role }}</em></p>
-        </header>
-
-        <div class="exp-body font-body">
-          <ul class="highlights-list">
-            <li v-for="(highlight, idx) in exp.highlights" :key="idx">
-              {{ highlight }}
-            </li>
-          </ul>
         </div>
 
-        <div class="exp-tech">
-          <em>{{ exp.technologies.join(', ') }}</em>
+        <div class="exp-right-col">
+          <div class="exp-body font-body">
+            <ul class="highlights-list">
+              <li v-for="(highlight, idx) in exp.highlights" :key="idx">
+                {{ highlight }}
+              </li>
+            </ul>
+          </div>
+          <div class="exp-tech">
+            <em>Filed under: {{ exp.technologies.join(', ') }}</em>
+          </div>
         </div>
-        
-        <hr class="editorial-rule-thin">
       </article>
     </div>
 
     <!-- Bottom View All Button on Home Page -->
     <div v-if="isHome" class="section-view-more">
-      <NuxtLink to="/experience" class="view-more-link font-heading">
+      <NuxtLink to="/experience" class="view-more-link font-headline">
         View Complete Ledger &rarr;
       </NuxtLink>
     </div>
@@ -75,35 +72,59 @@ const props = withDefaults(defineProps<{
   letter-spacing: normal;
 }
 
+.editorial-rule-double {
+  border: none;
+  border-top: 3px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  height: 6px;
+  margin: 1rem 0 2rem;
+}
+
 .experience-list {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .exp-entry {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-dim);
 }
 
-.exp-header {
-  margin-bottom: 1rem;
+@media (max-width: 768px) {
+  .exp-entry {
+    grid-template-columns: 1fr;
+  }
+  .exp-right-col {
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+}
+
+.exp-left-col {
+  padding-right: 1rem;
+}
+
+.exp-right-col {
+  border-left: 1px solid var(--border-strong);
+  padding-left: 1.5rem;
 }
 
 .exp-meta {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--text-dim);
-}
-
-.separator {
-  margin: 0 0.5rem;
-  color: var(--border-dim);
+  line-height: 1.4;
 }
 
 .company-name {
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-main);
   margin-bottom: 0.25rem;
+  text-transform: uppercase;
 }
 
 .role-name {
@@ -112,7 +133,7 @@ const props = withDefaults(defineProps<{
 }
 
 .exp-body {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .highlights-list {
@@ -142,18 +163,12 @@ const props = withDefaults(defineProps<{
 .exp-tech {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
-
-.editorial-rule-thin {
-  border: none;
-  border-top: 1px solid var(--border-dim);
-  margin: 2rem 0;
 }
 
 .section-view-more {
   display: flex;
   justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 .view-more-link {
@@ -162,6 +177,7 @@ const props = withDefaults(defineProps<{
   text-decoration: none;
   font-weight: 700;
   transition: color 0.2s ease;
+  text-transform: uppercase;
 }
 
 .view-more-link:hover {

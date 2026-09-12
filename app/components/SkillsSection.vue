@@ -2,20 +2,20 @@
   <section id="skills" class="skills-section">
     <!-- Header -->
     <div class="section-header">
-      <h2 class="section-title font-heading">{{ isHome ? 'Core Competencies' : 'Technical Index' }}</h2>
+      <h2 class="section-title font-headline">THE TECHNICAL CLASSIFIEDS & INDEX</h2>
     </div>
-    <hr class="editorial-rule">
+    <hr class="editorial-rule-double">
 
     <!-- Home Page View (Featured Skills grouped by category) -->
-    <div v-if="isHome" class="skills-classified-home">
+    <div v-if="isHome" class="skills-classified-home editorial-columns">
       <div 
         v-for="cat in skillCategories" 
         :key="cat.category" 
         class="classified-group"
       >
-        <h3 class="classified-cat-title font-mono">{{ cat.category.toUpperCase() }}</h3>
+        <h3 class="classified-cat-title font-headline">{{ cat.category }}</h3>
         <p class="classified-skills font-body">
-          {{ cat.skills.filter(s => s.featured).map(s => s.name).join(', ') }}
+          {{ cat.skills.filter(s => s.featured).map(s => s.name).join(', ') }}.
         </p>
       </div>
     </div>
@@ -73,28 +73,35 @@ const props = withDefaults(defineProps<{
   letter-spacing: normal;
 }
 
+.editorial-rule-double {
+  border: none;
+  border-top: 3px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  height: 6px;
+  margin: 1rem 0 2rem;
+}
+
 /* Home Page View */
 .skills-classified-home {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .classified-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-strong);
+  padding: 1rem;
+  background: var(--bg-surface);
 }
 
 .classified-cat-title {
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-main);
-  letter-spacing: 0.05em;
-  border-bottom: 1px solid var(--border-dim);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--border-strong);
   padding-bottom: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .classified-skills {

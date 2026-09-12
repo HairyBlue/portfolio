@@ -3,6 +3,9 @@
     <!-- Floating Header Navigation -->
     <HeaderNav />
 
+    <!-- Massive Broadsheet Hero (Spanning Page, only on Home) -->
+    <HeroSection v-if="route.path === '/'" />
+
     <!-- 2-Column Main Layout -->
     <div class="portfolio-container portfolio-layout">
       <!-- Left Column: Sticky Profile Sidebar -->
@@ -18,9 +21,13 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import HeaderNav from '~/components/HeaderNav.vue'
+import HeroSection from '~/components/HeroSection.vue'
 import ProfileSidebar from '~/components/ProfileSidebar.vue'
 import FooterSection from '~/components/FooterSection.vue'
+
+const route = useRoute()
 
 // Schema.org Person, WebSite, and SiteNavigationElement (Google Sitelinks)
 useHead({
@@ -67,41 +74,6 @@ useHead({
             'publisher': {
               '@id': 'https://hairyblue.pages.dev/#person'
             }
-          },
-          {
-            '@type': 'ItemList',
-            '@id': 'https://hairyblue.pages.dev/#sitelinks',
-            'name': 'Portfolio Site Navigation',
-            'itemListElement': [
-              {
-                '@type': 'SiteNavigationElement',
-                'position': 1,
-                'name': 'Projects',
-                'description': 'Featured software engineering projects built by Nicki Marty Pecision.',
-                'url': 'https://hairyblue.pages.dev/projects'
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                'position': 2,
-                'name': 'Work Experience',
-                'description': 'Professional software engineering experience across municipal government systems and international development teams.',
-                'url': 'https://hairyblue.pages.dev/experience'
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                'position': 3,
-                'name': 'Tech Stack & Tools',
-                'description': 'Comprehensive technology stack, programming languages, databases, and DevOps tools.',
-                'url': 'https://hairyblue.pages.dev/skills'
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                'position': 4,
-                'name': 'My Story',
-                'description': 'Origin story and journey into software engineering by Nicki Marty Pecision.',
-                'url': 'https://hairyblue.pages.dev/story'
-              }
-            ]
           }
         ]
       })

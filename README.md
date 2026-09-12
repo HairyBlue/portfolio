@@ -1,6 +1,6 @@
 # hairyblue.pages.dev 📰☕
 
-> Personal portfolio built with Nuxt 4 — a vintage editorial theme with a warm coffee-toned design system.
+> Personal portfolio built with Nuxt 4 — styled as an authentic early 20th-century broadsheet newspaper front page.
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-hairyblue.pages.dev-8B2615?style=flat-square)](https://hairyblue.pages.dev)
 [![Nuxt](https://img.shields.io/badge/Nuxt-4-00DC82?style=flat-square&logo=nuxt.js&logoColor=white)](https://nuxt.com)
@@ -21,22 +21,47 @@ The site is crafted as a dual-purpose conversion funnel — structured to engage
 
 ---
 
-## 🗞️ Theme & Design
+## 🗞️ Theme & Design: Authentic Broadsheet Newspaper
 
-The portfolio departs from conventional tech layouts, adopting a tactile **Vintage Editorial** aesthetic modeled after classic broadsheet newspapers and print typography.
+The portfolio departs from conventional tech layouts, adopting an authentic **Broadsheet Newspaper** aesthetic modeled after early 20th-century front pages and classic print journalism.
 
-### Design Principles & Highlights
-- **Coffee Design System:** A warm, grounded palette anchored in espresso, roast, latte, and cream tones.
-- **Serif-First Typography:** 
-  - **Headlines:** *Playfair Display* for striking, high-contrast broadsheet headings.
-  - **Body Text:** *Lora* for editorial readability and long-form cadence.
-  - **Accents & Meta:** *JetBrains Mono* for timestamps, badges, and technical annotations.
-- **Print, Not SaaS:** Deliberately avoids modern SaaS cliches — zero `border-radius` (sharp corners only), zero soft `box-shadows`, thick and thin editorial rules, drop caps, pull quotes, multi-column reading grids, and a masthead-style sidebar.
-- **Color Palette Highlights:**
-  - `var(--bg-page)` (`#F9F7F1`) — Aged newsprint background
-  - `var(--bg-surface)` (`#F2EFE9`) — Paper block surface
-  - `var(--text-main)` (`#1A1512`) — Rich ink-black typography
-  - `var(--accent-ink)` (`#8B2615`) — Vintage brick-red for interactive accents and callouts
+### 🏛️ Inspiration
+Rooted in classic broadsheet journalism, the design draws visual inspiration from early 20th-century newspaper front pages (such as the historic 1918 *New York Times* Armistice and front-page layouts) alongside vintage broadsheet poster art. It celebrates the tactile gravity, structured density, and mechanical craftsmanship of letterpress and ink printing — purposefully rejecting generic modern SaaS cards, rounded pills, and synthetic gradients.
+
+### 📰 The Masthead
+At the top of the broadsheet sits ***The Hairyblue Chronicle***:
+- **Corner Ears:** Traditional newspaper ear boxes flanking the title banner — featuring `EST. 2026` on the left and `SPECIAL EDITION · PRICE: 1 COFFEE` on the right.
+- **Publication Dateline Strip:** Official publication strip displaying edition numbering, date, distribution region, and weather/edition dispatches.
+- **Editorial Motto:** Anchored beneath the masthead banner: *"Code is the language of freedom in the digital realm"*.
+
+### 🔤 Typography Stack
+A bespoke historical font hierarchy balancing gothic calligraphy, woodblock display headlines, and high-legibility editorial serifs:
+- **Masthead:** `UnifrakturMaguntia` — Authentic Gothic / Blackletter calligraphy embodying the historic newspaper banner.
+- **Headlines & Decks:** `Oswald` / `Bebas Neue` — Ultra-condensed woodblock all-caps display delivering immediate gravitas for lead stories, sub-headlines, and column decks.
+- **Body Articles:** `Newsreader` / `Lora` — Period-accurate editorial serifs engineered for long-form readability, natural justification, and multi-column cadence.
+- **Captions & Metas:** `JetBrains Mono` — Tracked-out monospaced type for official datelines, weather tickers, article metadata, code snippets, and technical badges.
+
+### 🎨 Color Palette & Texture
+Crafted with CSS custom properties to replicate the visual warmth of aged newsprint, dark printing inks, and letterpress accents:
+- **Aged Newsprint Parchment (`#F9F7F1` / `--bg-page`):** Soft, unbleached broadsheet paper ground that reduces eye strain.
+- **Paper Surface Tones (`#F2EFE9` / `--bg-surface`, `#E8E4DB` / `--bg-surface-subtle`):** Layered newsprint tones for boxed notices, classified blocks, and inset columns.
+- **Deep Printing Ink (`#1A1512` / `--text-main`, `--border-strong`):** High-density letterpress black for crisp headlines, body copy, and heavy rules.
+- **Faded Ink (`#5C4D43` / `--text-muted`):** Weathered tone for secondary sub-heads, deck leads, and editorial descriptions.
+- **Vintage Brick-Red Accent (`#8B2615` / `--accent-ink`):** Period rubrication accent for priority alerts, lead drop caps, telegram stamps, and interactive callouts.
+- **Column Rules (`#D6CEC3` / `--border-dim`):** Subtle vertical and horizontal dividing rules reminiscent of mechanical printing plate separators.
+
+### ✒️ Print Craft Elements
+- **Double-Rule Borders:** Authentic parallel thick-and-thin printer's rules framing the masthead, major section divisions, and featured dispatches.
+- **Halftone Photo & Cutline Caption:** Front-page author portrait rendered with a vintage newspaper halftone/greyscale screen and a formal cutline caption (`Fig. 1: Editor & Lead Architect`), revealing full-color tones on hover.
+- **Dense Column Grids:** Multi-column broadsheet reading layouts featuring vertical dividing borders, drop caps, and authentic editorial flow.
+- **Classifieds Index:** Technical skills, domain competencies, and toolchains categorized as traditional classified listings and market notices.
+- **Boxed Telegram CTA Notices:** High-priority conversion sections and contact invitations styled as urgent telegraphic dispatches with boxed frames.
+- **Zero Modern SaaS Clichés:** Strict elimination of rounded pill buttons (`border-radius: 0`), soft modern drop-shadows, and neon glows in favor of tactile ink-on-paper authority.
+
+### 🌿 Design Branch Reference
+This repository maintains two distinct design explorations:
+- **`theme/authentic-broadsheet`** *(Active Branch)* — Authentic early 20th-century broadsheet newspaper aesthetic featuring gothic blackletter masthead, woodblock display headlines, halftone portrait engraving, and dense print grids.
+- **`redesign/vintage-editorial`** — Modern warm-coffee editorial theme featuring refined editorial serifs, contemporary whitespace, and warm cafe tones.
 
 ---
 

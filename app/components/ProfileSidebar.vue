@@ -10,8 +10,11 @@
           class="avatar-profile-img" 
           tabindex="0"
         />
-        <div v-else class="avatar-initials font-heading">{{ personalDetails.badgeText }}</div>
+        <div v-else class="avatar-initials font-headline">{{ personalDetails.badgeText }}</div>
       </div>
+      <p class="avatar-caption font-mono">
+        <em>Fig. 1: {{ personalDetails.name }}, Software Engineer.</em>
+      </p>
     </div>
 
     <!-- Personal Info -->
@@ -91,9 +94,17 @@ import { personalDetails } from '~/data/portfolioData'
 .sidebar-avatar-container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 1.5rem;
   position: relative;
+}
+
+.avatar-caption {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .avatar-backdrop {

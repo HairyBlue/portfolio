@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Oswald:wght@600;700&family=Bebas+Neue&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
   /* Font Families */
-  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Lora', Georgia, serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-masthead: 'UnifrakturMaguntia', serif;
+  --font-headline: 'Oswald', 'Bebas Neue', sans-serif;
+  --font-body: 'Newsreader', 'Lora', serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   /* Color Palette - Vintage Editorial */
   --bg-page: #F9F7F1;          /* Aged newsprint */
@@ -60,7 +61,7 @@ body {
 
 /* Typography Utilities */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-headline);
 }
 
 .font-mono {
@@ -73,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 320px 1fr;
   gap: 2.5rem;
   align-items: start;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   padding-bottom: 5rem;
 }
 
@@ -182,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .drop-cap::first-letter {
-  font-family: var(--font-heading);
+  font-family: var(--font-headline);
   font-size: 4rem;
   float: left;
   line-height: 0.8;
@@ -192,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pull-quote {
-  font-family: var(--font-heading);
+  font-family: var(--font-headline);
   font-size: 1.5rem;
   font-style: italic;
   color: var(--text-main);

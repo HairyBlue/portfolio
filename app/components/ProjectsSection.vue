@@ -2,9 +2,9 @@
   <section id="projects" class="projects-section">
     <!-- Header -->
     <div class="section-header">
-      <h2 class="section-title font-heading">{{ isHome ? 'Featured Case Studies' : 'All Projects' }}</h2>
+      <h2 class="section-title font-headline">{{ isHome ? 'FEATURED INVESTIGATIONS & CASE STUDIES' : 'ALL INVESTIGATIONS' }}</h2>
     </div>
-    <hr class="editorial-rule">
+    <hr class="editorial-rule-double">
 
     <!-- Vertical Projects List -->
     <div class="projects-list">
@@ -14,20 +14,14 @@
         class="project-article"
         @click="openModal(project)"
       >
-        <div class="article-meta dateline">
-          <span class="category">{{ project.category }}</span>
-          <span class="separator">|</span>
-          <span class="year">{{ project.year }}</span>
-        </div>
-        
-        <h3 class="project-title font-heading">{{ project.title }}</h3>
+        <h3 class="project-title font-headline">{{ project.title }}</h3>
         
         <p class="project-snippet font-body">
-          {{ project.description }}
+          <span class="article-dateline">{{ project.location || 'DAVAO DEL SUR' }} —</span> {{ project.description }}
         </p>
         
         <div class="project-tech">
-          <em>{{ project.technologies.join(' · ') }}</em>
+          <em>Filed under: {{ project.technologies.join(', ') }}.</em>
         </div>
       </article>
     </div>
@@ -185,16 +179,27 @@ onUnmounted(() => {
   margin-bottom: 0.5rem;
 }
 
-.separator {
-  margin: 0 0.5rem;
-  color: var(--border-dim);
+.editorial-rule-double {
+  border: none;
+  border-top: 3px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  height: 6px;
+  margin: 1rem 0 2rem;
+}
+
+.article-dateline {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
 }
 
 .project-title {
   font-size: 1.75rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-main);
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .project-snippet {

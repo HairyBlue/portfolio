@@ -2,9 +2,9 @@
   <section id="story" class="story-section">
     <!-- Header -->
     <div class="section-header">
-      <h2 class="section-title font-heading">{{ isHome ? 'Origin' : 'Story & Thoughts' }}</h2>
+      <h2 class="section-title font-headline">{{ isHome ? 'ORIGIN' : 'STORY & THOUGHTS' }}</h2>
     </div>
-    <hr class="editorial-rule">
+    <hr class="editorial-rule-double">
 
     <article class="feature-article">
       <header class="article-header">
@@ -72,6 +72,14 @@ const props = withDefaults(defineProps<{
   letter-spacing: normal;
 }
 
+.editorial-rule-double {
+  border: none;
+  border-top: 3px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  height: 6px;
+  margin: 1rem 0 2rem;
+}
+
 .feature-article {
   padding-bottom: 2rem;
 }
@@ -114,19 +122,23 @@ const props = withDefaults(defineProps<{
   line-height: 1.8;
   color: var(--text-main);
   margin-bottom: 1.5rem;
+  text-align: justify;
 }
 
 .drop-cap {
   margin-bottom: 2rem;
+  text-align: justify;
 }
 
 /* Re-declaring utility classes here in case main.css is not fully sufficient for scoping */
 .pull-quote {
   font-size: 1.75rem;
   line-height: 1.4;
-  margin: 2.5rem 0;
-  padding-left: 1.5rem;
-  border-left: 4px solid var(--accent-ink);
+  margin: 2.5rem auto;
+  text-align: center;
+  border-top: 2px solid var(--border-strong);
+  border-bottom: 2px solid var(--border-strong);
+  padding: 1.5rem 0;
   color: var(--text-main);
   font-style: italic;
   max-width: 90%;

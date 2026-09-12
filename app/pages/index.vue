@@ -1,13 +1,14 @@
 <template>
   <div class="home-page">
-    <HeroSection />
-    
     <ProjectsSection :is-home="true" />
     
     <!-- CTA after Projects -->
     <div class="cta-section">
-      <h3 class="font-heading">Have a similar challenge? Let's talk.</h3>
-      <a :href="`mailto:nickimarty.pecision@gmail.com`" class="btn-primary">Get in Touch</a>
+      <div class="telegram-box">
+        <h3 class="font-headline">★ NOTICE FOR CLIENTS & EMPLOYERS ★</h3>
+        <p class="font-body">Commission an engineering build or transmit a telegraph.</p>
+        <a :href="`mailto:nickimarty.pecision@gmail.com`" class="btn-primary">[ TRANSMIT TELEGRAM / CONTACT ]</a>
+      </div>
     </div>
     
     <hr class="editorial-rule">
@@ -29,7 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import HeroSection from '~/components/HeroSection.vue'
 import ProjectsSection from '~/components/ProjectsSection.vue'
 import ExperienceSection from '~/components/ExperienceSection.vue'
 import SkillsSection from '~/components/SkillsSection.vue'
@@ -60,11 +60,28 @@ useHead({
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
 }
 
-.cta-section h3 {
-  font-size: 2rem;
+.telegram-box {
+  border: 4px double var(--border-strong);
+  padding: 2rem;
+  background: var(--bg-surface);
+  max-width: 600px;
+  width: 100%;
+}
+
+.telegram-box h3 {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
   color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.telegram-box p {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--text-muted);
 }
 </style>
