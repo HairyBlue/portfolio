@@ -15,8 +15,8 @@
 This is the personal portfolio of **Nicki Marty Pecision** ([Hairyblue](https://github.com/HairyBlue)), a Software Engineer based in Mindanao, Philippines.
 
 The site is crafted as a dual-purpose conversion funnel — structured to engage both prospective freelance clients and potential engineering employers:
-- **Case Studies** — Real-world web applications and platforms detailed with challenges, solutions, and metrics.
-- **Impact Stories** — Professional trajectory presented through measurable outcomes and organizational impact.
+- **Featured Case Studies** — Real-world web applications and platforms detailed with challenges, architectures, solutions, and impacts.
+- **The Editorial Chronicles** — Professional trajectory presented through measurable outcomes, organizational impact, and personal narratives.
 - **Curated Index** — A transparent breakdown of technical proficiencies, tooling, and domain knowledge.
 
 ---
@@ -26,82 +26,77 @@ The site is crafted as a dual-purpose conversion funnel — structured to engage
 The portfolio departs from conventional tech layouts, adopting an authentic **Broadsheet Newspaper** aesthetic modeled after early 20th-century front pages and classic print journalism.
 
 ### 🏛️ Inspiration
-Rooted in classic broadsheet journalism, the design draws visual inspiration from early 20th-century newspaper front pages (such as the historic 1918 *New York Times* Armistice and front-page layouts) alongside vintage broadsheet poster art. It celebrates the tactile gravity, structured density, and mechanical craftsmanship of letterpress and ink printing — purposefully rejecting generic modern SaaS cards, rounded pills, and synthetic gradients.
+Rooted in classic broadsheet journalism, the design draws visual inspiration from early 20th-century newspaper front pages. It celebrates the tactile gravity, structured density, and mechanical craftsmanship of letterpress and ink printing — purposefully rejecting generic modern SaaS cards, rounded pills, and synthetic gradients.
 
 ### 📰 The Masthead
 At the top of the broadsheet sits ***The Hairyblue Chronicle***:
-- **Corner Ears:** Traditional newspaper ear boxes flanking the title banner — featuring `EST. 2026` on the left and `SPECIAL EDITION · PRICE: 1 COFFEE` on the right.
+- **Corner Ears:** Traditional newspaper ear boxes flanking the title banner.
 - **Publication Dateline Strip:** Official publication strip displaying edition numbering, date, distribution region, and weather/edition dispatches.
-- **Editorial Motto:** Anchored beneath the masthead banner: *"Code is the language of freedom in the digital realm"*.
+- **Editorial Motto:** *"Code is the language of freedom in the digital realm"*.
 
 ### 🔤 Typography Stack
-A bespoke historical font hierarchy balancing gothic calligraphy, woodblock display headlines, and high-legibility editorial serifs:
 - **Masthead:** `UnifrakturMaguntia` — Authentic Gothic / Blackletter calligraphy embodying the historic newspaper banner.
-- **Headlines & Decks:** `Oswald` / `Bebas Neue` — Ultra-condensed woodblock all-caps display delivering immediate gravitas for lead stories, sub-headlines, and column decks.
-- **Body Articles:** `Newsreader` / `Lora` — Period-accurate editorial serifs engineered for long-form readability, natural justification, and multi-column cadence.
-- **Captions & Metas:** `JetBrains Mono` — Tracked-out monospaced type for official datelines, weather tickers, article metadata, code snippets, and technical badges.
-
-### 🎨 Color Palette & Texture
-Crafted with CSS custom properties to replicate the visual warmth of aged newsprint, dark printing inks, and letterpress accents:
-- **Aged Newsprint Parchment (`#F9F7F1` / `--bg-page`):** Soft, unbleached broadsheet paper ground that reduces eye strain.
-- **Paper Surface Tones (`#F2EFE9` / `--bg-surface`, `#E8E4DB` / `--bg-surface-subtle`):** Layered newsprint tones for boxed notices, classified blocks, and inset columns.
-- **Deep Printing Ink (`#1A1512` / `--text-main`, `--border-strong`):** High-density letterpress black for crisp headlines, body copy, and heavy rules.
-- **Faded Ink (`#5C4D43` / `--text-muted`):** Weathered tone for secondary sub-heads, deck leads, and editorial descriptions.
-- **Vintage Brick-Red Accent (`#8B2615` / `--accent-ink`):** Period rubrication accent for priority alerts, lead drop caps, telegraph stamps, and interactive callouts.
-- **Column Rules (`#D6CEC3` / `--border-dim`):** Subtle vertical and horizontal dividing rules reminiscent of mechanical printing plate separators.
+- **Headlines & Decks:** `Oswald` / `Bebas Neue` — Ultra-condensed woodblock all-caps display delivering immediate gravitas.
+- **Body Articles:** `Newsreader` / `Lora` — Period-accurate editorial serifs engineered for long-form readability.
+- **Captions & Metas:** `JetBrains Mono` — Tracked-out monospaced type for official datelines, weather tickers, and technical badges.
 
 ### ✒️ Print Craft Elements
-- **Double-Rule Borders:** Authentic parallel thick-and-thin printer's rules framing the masthead, major section divisions, and featured dispatches.
-- **Halftone Photo & Cutline Caption:** Front-page author portrait rendered with a vintage newspaper halftone/greyscale screen and a formal cutline caption (`Fig. 1: Editor & Lead Architect`), revealing full-color tones on hover.
-- **Dense Column Grids:** Multi-column broadsheet reading layouts featuring vertical dividing borders, drop caps, and authentic editorial flow.
-- **Classifieds Index:** Technical skills, domain competencies, and toolchains categorized as traditional classified listings and market notices.
+- **Zero Tailwind Dependency:** Strictly Vanilla CSS with custom properties replicating aged newsprint, printing inks, and letterpress accents.
+- **Halftone Photo & Cutline Caption:** Front-page author portrait rendered with a vintage newspaper halftone/greyscale screen.
 - **Boxed Telegraph CTA Notices:** High-priority conversion sections and contact invitations styled as urgent telegraphic dispatches with boxed frames.
-- **Zero Modern SaaS Clichés:** Strict elimination of rounded pill buttons (`border-radius: 0`), soft modern drop-shadows, and neon glows in favor of tactile ink-on-paper authority.
 
-### 🌿 Design Branch Reference
-This repository maintains two distinct design explorations:
-- **`theme/authentic-broadsheet`** *(Active Branch)* — Authentic early 20th-century broadsheet newspaper aesthetic featuring gothic blackletter masthead, woodblock display headlines, halftone portrait engraving, and dense print grids.
-- **`redesign/vintage-editorial`** — Modern warm-coffee editorial theme featuring refined editorial serifs, contemporary whitespace, and warm cafe tones.
+---
+
+## 🏆 Featured Case Studies Suite
+
+The portfolio highlights 5 core featured case studies, headlined by our flagship AI orchestration project:
+
+1. **ACON — Agent Control Plane** ([github.com/HairyBlue/acon](https://github.com/HairyBlue/acon))
+2. **e-Bulletin Portal**
+3. **Camote Utils**
+4. **Mobile AR in Human Anatomy**
+5. **Activity Tracker**
+
+These case studies feature interactive broadsheet deep-dive accordions (`[ READ FULL CASE STUDY ↓ ]`) that detail the Challenge, Architecture, Solution, and Impact in a dense, period-accurate format.
+
+---
+
+## 📖 The Editorial Chronicles & Dual-Story Reader (`/story`)
+
+The `/story` route houses a dual-dispatch broadsheet reader that elegantly presents personal narratives and technical milestones.
+
+### Dual-Dispatch Broadsheet Reader:
+- **Dispatch I: From Ledgers to Pipelines** — The Origin Chronicle.
+- **Dispatch II: Late to the Wave, But I Built My Own Boat** — The Lead Editorial Dispatch, covering single-subscription AI orchestration, the `herdr` multiplexer, and the ACON architecture.
+
+### Key Engineering Features:
+- **`StoryReader.vue`:** A tabbed reader component engineered to eliminate endless vertical scrolling and maintain tight editorial layouts.
+- **Visual Newspaper Figure Cutlines:** Authentic halftone cutlines documenting technical setups, such as **Fig. 2** (`herdr` multiplexer on Gemini 3.8 Flash) and **Fig. 3** (ACON lifecycle flowchart).
+
+---
+
+## 📚 Broadsheet Documentation Archive (`docs/`)
+
+The repository features a newly organized documentation library formatted as print archives:
+
+- `docs/origin-story/` (`story1.md`, `story2.md`)
+- `docs/featured-case-studies/` (`acon.md`, `e-bulletin.md`, `camote-utils.md`, etc.)
+- `docs/chronicle/` (`chronicle.md`)
+- `docs/classifieds/` (`classifieds.md`)
+- `docs/README.md` (Master index)
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Framework:** [Nuxt 4](https://nuxt.com) (Nightly) with [Vue 3](https://vuejs.org) and [TypeScript](https://www.typescriptlang.org)
-- **Styling:** Vanilla CSS with custom properties (`app/assets/css/main.css`) — zero Tailwind CSS dependency
-- **Static Generation:** Fully pre-rendered static site generation (SSG) with automatic link crawling
-- **Deployment & Hosting:** [Cloudflare Pages](https://pages.cloudflare.com) via Nitro's `cloudflare-pages` preset
+- **Styling:** Vanilla CSS with custom properties (`app/assets/css/main.css`) — strictly zero Tailwind.
+- **Static Generation:** Fully pre-rendered static site generation (SSG) with automatic link crawling.
+- **Deployment & Hosting:** [Cloudflare Pages](https://pages.cloudflare.com) via Nitro's `cloudflare-pages` preset.
 
 ---
 
-## ⚡ Getting Started
-
-### Prerequisites
-- Node.js (v18.x or later recommended)
-- npm (or pnpm / yarn)
-
-### Development & Build Commands
-
-```bash
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
-
-# Generate static site
-npm run generate
-
-# Preview production build
-npm run preview
-```
-
----
-
-## 📁 Project Structure
+## 📁 Project Architecture Directory Tree
 
 ```text
 portfolio/
@@ -109,34 +104,41 @@ portfolio/
 │   ├── app.vue                 # Master layout shell & newspaper frame
 │   ├── assets/
 │   │   └── css/
-│   │       └── main.css        # Coffee Design System tokens & global typography
-│   ├── components/             # Reusable section components & custom icons
-│   │   ├── HeaderNav.vue       # Masthead navigation bar
-│   │   ├── ProfileSidebar.vue  # Broadside biography sidebar
-│   │   ├── HeroSection.vue     # Front-page editorial hero banner
-│   │   ├── ProjectsSection.vue # Filterable case studies
-│   │   ├── ExperienceSection.vue # Career timeline & impact stories
-│   │   ├── SkillsSection.vue   # Categorized technical index
+│   │       └── main.css        # Vanilla CSS tokens & global typography (Zero Tailwind)
+│   ├── components/             # Reusable section components
+│   │   ├── StoryReader.vue     # Tabbed dual-dispatch broadsheet reader
 │   │   ├── icons/              # Custom SVG icon components
 │   │   └── ...
 │   ├── data/                   # Centralized, typed data modules
-│   │   ├── personalData.ts     # Bio, contact, and social links
-│   │   ├── projectsData.ts     # Project details, metrics, and tags
-│   │   ├── experienceData.ts   # Work experience and impact highlights
-│   │   └── skillsData.ts       # Categorized skills and proficiency ratings
+│   │   ├── projectsData.ts     # Project details, metrics, and case studies
+│   │   ├── storyData.ts        # Editorial chronicles and narrative dispatches
+│   │   └── ...
 │   └── pages/                  # File-based routing (5 pages)
-│       ├── index.vue           # Comprehensive single-page editorial view
-│       ├── projects.vue        # Dedicated projects showcase
-│       ├── experience.vue      # Dedicated career timeline
-│       ├── skills.vue          # Dedicated skills matrix
-│       └── story.vue           # Journey and personal background
+│       └── ...
+├── docs/                       # Broadsheet Documentation Archive
+│   ├── origin-story/
+│   │   ├── story1.md
+│   │   └── story2.md
+│   ├── featured-case-studies/
+│   │   ├── acon.md
+│   │   ├── e-bulletin.md
+│   │   └── camote-utils.md
+│   ├── chronicle/
+│   │   └── chronicle.md
+│   ├── classifieds/
+│   │   └── classifieds.md
+│   └── README.md               # Master index
+├── public/
+│   └── images/
+│       ├── herdr-setup.png     # Fig. 2 cutline asset
+│       └── acon-architecture.png # Fig. 3 cutline asset
 ├── nuxt.config.ts              # Nuxt & Nitro build configuration
 └── package.json                # Project dependencies and scripts
 ```
 
 ---
 
-## 🚀 Deployment
+## 🚀 Deployment & Tooling Workflow
 
 The portfolio is hosted on [Cloudflare Pages](https://pages.cloudflare.com). All routes are fully pre-rendered as static assets at build time using Nitro's `cloudflare-pages` preset.
 
@@ -146,20 +148,17 @@ Continuous deployment triggers automatically on push to `master`. Cloudflare Pag
 
 ### 📦 Manual Deployment (Wrangler CLI)
 
-You can build and deploy directly to Cloudflare Pages via the [Cloudflare Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/):
+You can build and deploy directly to Cloudflare Pages via the [Cloudflare Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) using your `CLOUDFLARE_API_TOKEN`:
 
 ```bash
 # Build / generate static assets
 npm run generate
 
-# (Optional) Preview locally before deploying
-npx wrangler pages dev dist/
-
 # Deploy directly to Cloudflare Pages
-npx wrangler pages deploy dist/ --project-name=<name>
+npx wrangler pages deploy dist/ --project-name=hairyblue
 ```
 
-> **Note:** Under the `cloudflare-pages` preset configured in `nuxt.config.ts`, Nitro outputs static assets directly to `dist/` (standard Nitro setups default to `.output/public`). Pass `dist/` to Wrangler and replace `<name>` with your Cloudflare Pages project name (e.g. `hairyblue`).
+> **Note:** Under the `cloudflare-pages` preset configured in `nuxt.config.ts`, Nitro outputs static assets directly to `dist/` (standard Nitro setups default to `.output/public`). Pass `dist/` to Wrangler.
 
 Live deployment: [hairyblue.pages.dev](https://hairyblue.pages.dev)
 
