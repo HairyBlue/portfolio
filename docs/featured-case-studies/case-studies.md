@@ -15,16 +15,47 @@ The **Featured Case Studies** section showcases flagship engineering initiatives
 ├────┬─────────────────────────────┬────────┬──────────────────────────┬───────────┤
 │ ID │ Project Title               │ Year   │ Category                 │ Badge     │
 ├────┼─────────────────────────────┼────────┼──────────────────────────┼───────────┤
-│ 01 │ e-Bulletin Portal           │ 2026   │ Web Platform / GovTech   │ [EB]      │
-│ 02 │ Camote Utils                │ 2025   │ Open Source / NPM        │ [CU]      │
-│ 03 │ Mobile AR In Human Anatomy  │ 2025   │ AR / Spatial Computing   │ [AR]      │
-│ 04 │ Activity Tracker            │ 2024   │ Institutional Analytics  │ [AT]      │
-└────┴─────────────────────────────┴────────┴──────────────────────────┴───────────┘
+│ 01 │ ACON — AGENT CONTROL PLANE      │ 2026   │ Developer Tooling          │ [AC]      │
+│ 02 │ e-Bulletin Portal               │ 2026   │ Web Platform / GovTech   │ [EB]      │
+│ 03 │ Camote Utils                    │ 2025   │ Open Source / NPM        │ [CU]      │
+│ 04 │ Mobile AR In Human Anatomy      │ 2025   │ AR / Spatial Computing   │ [AR]      │
+│ 05 │ Activity Tracker                │ 2024   │ Institutional Analytics  │ [AT]      │
+└────┴─────────────────────────────────┴────────┴──────────────────────────┴───────────┘
 ```
 
 ---
 
-## 1. e-Bulletin Portal
+## 1. ACON — AGENT CONTROL PLANE
+
+> **"Autonomous Multi-Agent Systems & Developer Tooling"**  
+> *Production-grade multi-agent control plane*
+
+- **ID:** `acon`
+- **Year:** 2026
+- **Category:** Developer Tooling
+- **Location:** Mindanao, Philippines
+- **Production URL:** [https://github.com/HairyBlue/acon](https://github.com/HairyBlue/acon)
+- **Badge:** `AC`
+- **Status:** Live
+- **Detailed Doc:** [`./acon.md`](./acon.md)
+
+### Summary
+Architected a production-grade multi-agent control plane that coordinates specialist AI subagents (Frontend, Backend, QA, Git Ops) under a strict zero-execution command bridge—optimized to run an entire autonomous development fleet on a single subscription.
+
+### Engineering Breakdown
+- **Challenge:**  
+  Running multi-agent AI development fleets typically incurs massive costs due to redundant token usage, polling loops, and execution overlap. Furthermore, merge collisions and unstructured agent communications lead to inefficient and broken codebases. A single subscription constraint makes typical autonomous fleets unviable.
+- **Approach:**  
+  Architected a production-grade multi-agent control plane that coordinates specialist AI subagents under a strict zero-execution command bridge. Implemented The First Mate Protocol, Seam-Isolated Contracts, and Subscription-Optimized event wakeups.
+- **Outcome:**  
+  Delivered a system optimized to run an entire autonomous development fleet on a single subscription.
+
+### Technology Stack
+- **Core:** Multi-Agent Systems, Antigravity CLI, Gemini 3.8 Flash, TypeScript, Bash
+
+---
+
+## 2. e-Bulletin Portal
 
 > **"Modernizing Provincial Governance"**  
 > *Official Provincial Government Information System*
@@ -56,7 +87,7 @@ Digitized public advisories and procurement notices, establishing a transparent,
 
 ---
 
-## 2. Camote Utils
+## 3. Camote Utils
 
 > **"TypeScript Engineering Primitives"**  
 > *Open-Source Lightweight Data Manipulation & Serialization Utilities*
@@ -89,7 +120,7 @@ Engineered high-performance utility functions for string manipulation and comple
 
 ---
 
-## 3. Mobile AR In Human Anatomy
+## 4. Mobile AR In Human Anatomy
 
 > **"Spatial Computing for Education"**  
 > *Real-Time Computer Vision & Interactive 3D Anatomical Projections*
@@ -123,7 +154,7 @@ Bridged the gap between physical and digital spaces by architecting an adaptive 
 
 ---
 
-## 4. Activity Tracker
+## 5. Activity Tracker
 
 > **"Institutional Analytics Dashboard"**  
 > *Data Resilience Pipelines & Automated Participatory Metrics*

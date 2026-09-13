@@ -12,6 +12,7 @@ This directory contains in-depth documentation and technical breakdowns for each
 | Document | Focus & Title | Category | Status / Link |
 |---|---|---|---|
 | **[`case-studies.md`](./case-studies.md)** | **Consolidated Case Studies Master** | Master Index & Overview | Full broadsheet overview |
+| **[`acon.md`](./acon.md)** | **ACON** · AGENT CONTROL PLANE | Developer Tooling | [GitHub](https://github.com/HairyBlue/acon) |
 | **[`e-bulletin.md`](./e-bulletin.md)** | **e-Bulletin Portal** · Modernizing Provincial Governance | Web Platform / GovTech | [Live Portal](https://ebulletin.davaodelsur.gov.ph) |
 | **[`camote-utils.md`](./camote-utils.md)** | **Camote Utils** · TypeScript Engineering Primitives | Open Source / NPM | [GitHub](https://github.com/HairyBlue) |
 | **[`mobile-ar-anatomy.md`](./mobile-ar-anatomy.md)** | **Mobile AR in Human Anatomy** · Spatial Computing for Education | AR / Computer Vision | [GitHub](https://github.com/HairyBlue) |

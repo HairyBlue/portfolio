@@ -18,6 +18,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "acon",
+    title: "ACON — AGENT CONTROL PLANE",
+    year: "2026",
+    subtitle: "Autonomous Multi-Agent Systems & Developer Tooling",
+    category: "Developer Tooling",
+    description: "Architected a production-grade multi-agent control plane that coordinates specialist AI subagents (Frontend, Backend, QA, Git Ops) under a strict zero-execution command bridge—optimized to run an entire autonomous development fleet on a single subscription.",
+    longDescription: "Highlights:\n- The First Mate Protocol: Strict zero-execution command bridge separating supervisory direction from specialist worker execution.\n- Seam-Isolated Contracts: Zero merge collisions via rigid file boundary partitioning (SHIP vs SCOUT).\n- Subscription-Optimized: Multi-pane terminal multiplexing (herdr) with reactive event wakeups, eliminating polling token drain.",
+    technologies: ["Multi-Agent Systems", "Antigravity CLI", "Gemini 3.8 Flash", "TypeScript", "Bash"],
+    githubUrl: "https://github.com/HairyBlue/acon",
+    liveUrl: "/story",
+    featured: true,
+    stats: "Subscription-Optimized Multi-Agent Control Plane",
+    useImage: false,
+    badgeText: "AC"
+  },
+  {
     id: "e-bulletin",
     title: "e-Bulletin Portal",
     year: "2026",
