@@ -138,22 +138,30 @@ portfolio/
 
 ## 🚀 Deployment
 
-Auto-deploys via Cloudflare Pages on push to `master`. All routes are pre-rendered into static assets at build time using Nitro's `cloudflare-pages` preset.
+The portfolio is hosted on [Cloudflare Pages](https://pages.cloudflare.com). All routes are fully pre-rendered as static assets at build time using Nitro's `cloudflare-pages` preset.
 
-### Manual Deployment
+### 🌐 Automatic Deployment (Git Integration)
+
+Continuous deployment triggers automatically on push to `master`. Cloudflare Pages runs `npm run generate` and serves the pre-rendered broadsheet.
+
+### 📦 Manual Deployment (Wrangler CLI)
+
+You can build and deploy directly to Cloudflare Pages via the [Cloudflare Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/):
 
 ```bash
-# Generate static site
+# Build / generate static assets
 npm run generate
 
-# Preview locally before deploying
+# (Optional) Preview locally before deploying
 npx wrangler pages dev dist/
 
-# Deploy to Cloudflare Pages
-npx wrangler pages deploy dist/
+# Deploy directly to Cloudflare Pages
+npx wrangler pages deploy dist/ --project-name=<name>
 ```
 
-Live at: [hairyblue.pages.dev](https://hairyblue.pages.dev)
+> **Note:** Under the `cloudflare-pages` preset configured in `nuxt.config.ts`, Nitro outputs static assets directly to `dist/` (standard Nitro setups default to `.output/public`). Pass `dist/` to Wrangler and replace `<name>` with your Cloudflare Pages project name (e.g. `hairyblue`).
+
+Live deployment: [hairyblue.pages.dev](https://hairyblue.pages.dev)
 
 ---
 

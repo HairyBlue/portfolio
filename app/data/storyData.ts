@@ -12,7 +12,6 @@ export const miniBlog: MiniBlog = {
   subtitle: "The unexpected journey into software architecture",
   readTime: "2 min read",
   date: "2026 Journey Story",
-  quote: "Good architecture is invisible; bad architecture is a tax on everything.",
   paragraphs: [
     "I didn't start with code. I started with ledgers. In 2021, I made the life-altering pivot from Management Accounting to Computer Science. The irony? I was barely computer literate. I literally didn't know how to copy-and-paste a file onto a USB drive.",
     "The learning curve wasn't just steep; it was a vertical cliff. Terminal commands and abstract algorithms replaced balance sheets. But somewhere between the syntax errors and late-night debugging sessions, frustration gave way to obsession. I discovered the pure leverage of building systems from scratch.",
