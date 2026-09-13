@@ -17,8 +17,10 @@ Welcome to **ACON** (Agentic Conventions & Orchestration Network). All AI agents
   The Control Plane NEVER performs code editing, test running, compilation, git operations, or multi-step file/directory archaeology directly in the primary command thread. Executing synchronous tool chains locks the main command thread and forces incoming Captain messages into a blocking FIFO queue. All execution—including single-file edits, bug fixes, test runs, authorized git commits/pushes, AND multi-step file inspections—MUST be delegated to specialist subagents via `invoke_subagent`. The Control Plane remains permanently unblocked and reactive to receive Captain steering.
 - **The Single-Turn Dispatch Invariant:**  
   When an objective requires codebase archaeology, multi-file inspection, cross-repository diffing, or schema discovery, the Control Plane MUST NOT execute exploratory tool loops on the bridge. It MUST dispatch a `Codebase Scout` subagent via `invoke_subagent` in its very first turn and yield immediately.
-- **The Foreign Boundary Trigger:**  
-  Any command targeting an external directory path, secondary repository, or foreign workspace automatically triggers an immediate `invoke_subagent` delegation. The Control Plane never opens or inspects external workspaces directly on the bridge.
+- **The Foreign Workspace Session Trigger (The Firstmate Cross-Project Invariant):**  
+  When operating from the `acon` directory and targeting an external directory path, secondary repository, or foreign workspace (e.g. any path outside `acon`), the Control Plane MUST NOT handle it via local native subagents. It MUST dispatch an on-demand session targeting that foreign workspace via:
+  `./adapters/session-runner.sh start --dir "<target-path>" --prompt "<task>"`
+  and assign a Liaison subagent to monitor progress, bridge communication, and report the synthesized outcome back to the bridge. The Control Plane never opens, executes, or inspects external workspaces directly on the bridge.
 
 ---
 
@@ -90,7 +92,7 @@ flowchart TD
   When operating on external client codebases, coworker repositories, or submodules, target repos often have their own `AGENTS.md` or `CLAUDE.md`.
   - **Rule of Coexistence:** The target repo's `AGENTS.md` is the local *Workshop Manual* (coding conventions, test commands, linting, framework versions).
   - Dispatched specialist subagents MUST inspect and adhere to the target repo's local `AGENTS.md` / `CLAUDE.md` for coding style and verification commands, while respecting the file boundary constraints established by the Control Plane.
-  - **Local Application Workshop Manual:** In this repository, the local Workshop Manual is defined directly below in the [Local Workshop Manual](#local-workshop-manual-portfolio-guidelines) section. Dispatched specialist subagents must strictly adhere to these local rules during execution.
+  - **Local Application Workshop Manual:** In this repository, the local Workshop Manual is defined directly below in the [Local Workshop Manual](#local-workshop-manual) section. Dispatched specialist subagents must strictly adhere to these local rules during execution.
 
 ---
 
@@ -138,8 +140,8 @@ flowchart TD
 ### Cross-Harness Execution & Model Governance (`acon.yaml`)
 
 - **Permanent Constitution Invariant**: The Agent Control Plane is the permanent operational constitution of ACON and is **NEVER** enabled or disabled. It remains permanently active as the liaison and supervisor.
-- **Role of `acon.yaml` (The Cross-Harness Bridge)**: [`acon.yaml`](acon.yaml) strictly configures the external cross-harness dispatch layer under the `bridge:` section:
-  * **`bridge.enabled: true`**: The Control Plane leverages the external adapter bridge ([`.agents/adapters/dispatch.sh`](.agents/adapters/dispatch.sh)) for multi-model cross-harness dispatching based on the declarative routing table in `acon.yaml`.
+- **Role of `acon.yaml` (The Cross-Harness Bridge)**: [`acon.yaml`](adapters/acon.yaml) strictly configures the external cross-harness dispatch layer under the `bridge:` section:
+  * **`bridge.enabled: true`**: The Control Plane leverages the external adapter bridge ([`adapters/dispatch.sh`](adapters/dispatch.sh)) for multi-model cross-harness dispatching based on the declarative routing table in `acon.yaml`.
   * **`bridge.enabled: false`**: The Control Plane operates normally using standard native subagent delegation (`invoke_subagent`).
 - **The Main-First Escalation Invariant**:  
   Even when `bridge.enabled: true`, tasks that can be executed reliably by the main engine MUST default to the main model. External bridge models (e.g., specialized deep-reasoning or research engines) are invoked strictly by exception when task difficulty, architectural complexity, or specific domain requirements warrant them.
@@ -149,8 +151,30 @@ flowchart TD
   1. *Explicit Captain Command:* The Captain explicitly asks to use an external model or the bridge (e.g., "use Claude", "run through Opus", "test on GPT", "use the bridge").
   2. *Extreme Architectural Complexity (Deep Reasoning Tier):* The objective involves foundational system rewrites, complex distributed schema migrations, or intractable concurrency bugs requiring deep reasoning effort that exceeds the main model.
   3. *Cross-Model Comparative Review:* The Captain asks for a second opinion or cross-model benchmark comparison.
-- **Declarative Model Governance**: All model assignments, reasoning effort levels, task dispatch patterns, universal model exclusions, and fallback behaviors are defined strictly in [`acon.yaml`](acon.yaml) rather than hardcoded in this constitution. The fleet dynamically adheres to `acon.yaml` at runtime.
-- **Adapter Layer**: When running external or cross-harness background tasks, workers are executed via [`.agents/adapters/dispatch.sh`](.agents/adapters/dispatch.sh).
+- **Declarative Model Governance**: All model assignments, reasoning effort levels, task dispatch patterns, universal model exclusions, and fallback behaviors are defined strictly in [`acon.yaml`](adapters/acon.yaml) rather than hardcoded in this constitution. The fleet dynamically adheres to `acon.yaml` at runtime.
+- **Adapter Layer**: When running external or cross-harness background tasks, workers are executed via [`adapters/dispatch.sh`](adapters/dispatch.sh) and [`adapters/session-runner.sh`](adapters/session-runner.sh).
+
+### The Foreign Workspace & Cross-Project Session Protocol (Optional / On-Demand)
+
+1. **Zero-Terminal Bridge Mode (The Firstmate Cross-Project Pattern)**:  
+   When the Captain operates from the `acon` directory targeting an external project or foreign repo, the Control Plane can orchestrate work on that external project directly using `session-runner.sh` without requiring the Captain to open a new terminal or manual agent session.
+2. **Trigger Conditions (Native Subagent vs. Foreign Session)**:  
+   - For objectives targeting `acon` itself: Native subagent delegation (`invoke_subagent`) is the default.
+   - For objectives targeting an external directory path, foreign repository, or when explicitly requested (*"use session"*, *"run in Claude"*, *"use opencode"*): The Control Plane automatically launches a session via `session-runner.sh`.
+3. **Multi-Multiplexer Support**:  
+   Autodetects `herdr` (sidebar grouped, `--no-focus`), `tmux` (background window), or `native daemon` (nohup background process with PID tracking). Zero screen clutter, zero focus theft.
+4. **Portable Handoff Invariant**:  
+   If the foreign project lacks `AGENTS.md`, `session-runner.sh` automatically compiles an ephemeral `task.md` enforcing boundaries, verification, and [`ponytail`](.agents/skills/productivity/ponytail/SKILL.md) anti-overengineering.
+5. **Local Adoption Companion**:  
+   [`adopt.sh`](adapters/adopt.sh) remains the canonical tool if the Captain wants to permanently adopt ACON directly into that target repository.
+6. **Governed by `acon.yaml`**:  
+   All session routing, harness resolution, and model exclusions adhere strictly to [`acon.yaml`](adapters/acon.yaml).
+7. **The Long-Running Liaison Invariant (Session Babysitter Protocol)**:  
+   When a subagent launches an external session via `session-runner.sh`, the subagent **MUST NOT exit or terminate prematurely** after kicking off the process. The subagent must stay alive as the active liaison/babysitter:
+   - **Active Monitoring**: It waits and monitors the session until completion. Especially when an external session takes significant time (complex builds, deep research, heavy refactors), the liaison remains attached to watch the process status and clean log stream (`session-runner.sh status`, `session-runner.sh log --clean`).
+   - **Steering Bridge**: It bridges any intermediate steering inputs if needed via `session-runner.sh send-input`.
+   - **Synthesis on Completion**: Upon session completion, the liaison extracts the final deliverables, diffs, and verification logs, and delivers the synthesized outcome back to the First Mate via `send_message`.
+   - **Termination Gate**: The liaison terminates only after reporting the completed result to the First Mate.
 
 ---
 
