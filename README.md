@@ -47,7 +47,7 @@ Crafted with CSS custom properties to replicate the visual warmth of aged newspr
 - **Paper Surface Tones (`#F2EFE9` / `--bg-surface`, `#E8E4DB` / `--bg-surface-subtle`):** Layered newsprint tones for boxed notices, classified blocks, and inset columns.
 - **Deep Printing Ink (`#1A1512` / `--text-main`, `--border-strong`):** High-density letterpress black for crisp headlines, body copy, and heavy rules.
 - **Faded Ink (`#5C4D43` / `--text-muted`):** Weathered tone for secondary sub-heads, deck leads, and editorial descriptions.
-- **Vintage Brick-Red Accent (`#8B2615` / `--accent-ink`):** Period rubrication accent for priority alerts, lead drop caps, telegram stamps, and interactive callouts.
+- **Vintage Brick-Red Accent (`#8B2615` / `--accent-ink`):** Period rubrication accent for priority alerts, lead drop caps, telegraph stamps, and interactive callouts.
 - **Column Rules (`#D6CEC3` / `--border-dim`):** Subtle vertical and horizontal dividing rules reminiscent of mechanical printing plate separators.
 
 ### ✒️ Print Craft Elements
@@ -55,7 +55,7 @@ Crafted with CSS custom properties to replicate the visual warmth of aged newspr
 - **Halftone Photo & Cutline Caption:** Front-page author portrait rendered with a vintage newspaper halftone/greyscale screen and a formal cutline caption (`Fig. 1: Editor & Lead Architect`), revealing full-color tones on hover.
 - **Dense Column Grids:** Multi-column broadsheet reading layouts featuring vertical dividing borders, drop caps, and authentic editorial flow.
 - **Classifieds Index:** Technical skills, domain competencies, and toolchains categorized as traditional classified listings and market notices.
-- **Boxed Telegram CTA Notices:** High-priority conversion sections and contact invitations styled as urgent telegraphic dispatches with boxed frames.
+- **Boxed Telegraph CTA Notices:** High-priority conversion sections and contact invitations styled as urgent telegraphic dispatches with boxed frames.
 - **Zero Modern SaaS Clichés:** Strict elimination of rounded pill buttons (`border-radius: 0`), soft modern drop-shadows, and neon glows in favor of tactile ink-on-paper authority.
 
 ### 🌿 Design Branch Reference

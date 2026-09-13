@@ -17,7 +17,7 @@
         <h3 class="project-title font-headline">{{ project.title }}</h3>
         
         <p class="project-snippet font-body">
-          <span class="article-dateline">{{ project.location || 'DAVAO DEL SUR' }} —</span> {{ project.description }}
+          {{ project.description }}
         </p>
         
         <div class="project-tech">
@@ -187,12 +187,6 @@ onUnmounted(() => {
   margin: 1rem 0 2rem;
 }
 
-.article-dateline {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
 
 .project-title {
   font-size: 1.75rem;

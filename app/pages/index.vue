@@ -4,10 +4,10 @@
     
     <!-- CTA after Projects -->
     <div class="cta-section">
-      <div class="telegram-box">
+      <div class="telegraph-box">
         <h3 class="font-headline">★ NOTICE FOR CLIENTS & EMPLOYERS ★</h3>
         <p class="font-body">Commission an engineering build or transmit a telegraph.</p>
-        <a :href="`mailto:nickimarty.pecision@gmail.com`" class="btn-primary">[ TRANSMIT TELEGRAM / CONTACT ]</a>
+        <a :href="`mailto:nickimarty.pecision@gmail.com`" class="btn-primary">[ TRANSMIT TELEGRAPH / CONTACT ]</a>
       </div>
     </div>
     
@@ -62,7 +62,7 @@ useHead({
   align-items: center;
 }
 
-.telegram-box {
+.telegraph-box {
   border: 4px double var(--border-strong);
   padding: 2rem;
   background: var(--bg-surface);
@@ -70,14 +70,14 @@ useHead({
   width: 100%;
 }
 
-.telegram-box h3 {
+.telegraph-box h3 {
   font-family: var(--font-headline);
   font-size: 1.5rem;
   color: var(--text-main);
   margin-bottom: 0.5rem;
 }
 
-.telegram-box p {
+.telegraph-box p {
   font-family: var(--font-body);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
